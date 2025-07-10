@@ -1,33 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+import { useEffect } from 'react';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const ApiKey = "c21be08f3bddddb8f6dace551f71004b"
+
+
+useEffect(() => {
+   const getMovies = async () => {
+
+    const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${ApiKey}&language=pt-BR`)
+
+    if(!response.ok){
+      throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
+    }
+
+    const data = await response.json()
+
+    console.log(data)
+  
+  }
+
+  getMovies()
+},[]);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div >
+        <input type="text" className='sarchBar' placeholder='Pesquise por um filme'/>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      <section>
+      
+      </section>
     </>
   )
 }
