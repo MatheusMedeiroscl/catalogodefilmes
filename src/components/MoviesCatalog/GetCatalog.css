@@ -1,0 +1,45 @@
+.catalog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.movieCard{
+    display: flex;
+    width: 100%;
+
+    margin: 1em;
+    padding: 0.5em;
+    border-radius: 15px;
+
+    background-color: #1E2940;
+}
+
+.areaForPoster{
+    margin-right: .7em;
+}
+.areaForPoster img{
+    width: 240px;
+    border-radius: 15px;
+}
+
+.areaForDetails{
+    width: 100%;
+    text-align: justify;
+}
+
+.title{
+    font-size: 2.3em;
+    margin: 0;
+    padding: 0;
+}
+
+.releaseData{
+    font-size: 1em;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    margin: 0;
+    padding: 0; 
+}
